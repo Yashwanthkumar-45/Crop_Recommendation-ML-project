@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Crop Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        {% if current_user.is_authenticated %}
+            <p>You are already registered and logged in. <a href="{{ url_for('home') }}">Go to Home</a></p>
+        {% else %}
+            <form method="POST" action="{{ url_for('register') }}">
+                <label for="username">Username</label>
+                <input type="text" name="username" required>
+
+                <label for="email">Email</label>
+                <input type="email" name="email" required>
+
+                <label for="password">Password</label>
+                <input type="password" name="password" required>
+
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+        {% endif %}
+    </div>
+</body>
+</html>

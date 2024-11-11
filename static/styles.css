@@ -1,0 +1,473 @@
+
+
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f7f6; /* Light background color */
+    color: #333;
+}
+
+/* Navigation Bar Styles */
+header {
+    background-color: #4CAF50; /* Green background */
+    padding: 15px; /* Padding around the nav */
+    text-align: center; /* Center text */
+}
+
+nav {
+    margin-top: 10px; /* Space below header */
+}
+
+nav a {
+    color: white; /* White text color */
+    text-decoration: none; /* No underline */
+    padding: 10px 20px; /* Padding for links */
+    margin: 0 15px; /* Spacing between links */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+nav a:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Container Styles */
+.container {
+    width: 80%;
+    margin: 20px auto; /* Center container */
+    padding: 20px; /* Padding for container */
+    background-color: white; /* White background for container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+/* Form Styles */
+.form-container {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; /* Limit form width */
+    margin: 0 auto; /* Center form */
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #2d6a4f;
+}
+
+.form-group {
+    margin-bottom: 15px; /* Space between form elements */
+    text-align: left; /* Align text to left */
+}
+
+label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 5px; /* Space below label */
+    display: block; /* Block-level label */
+}
+
+input[type="number"],
+input[type="text"] { /* Include text input as well */
+    width: 100%; /* Full width input */
+    padding: 10px; /* Padding inside input */
+    border: 1px solid #ddd; /* Border style */
+    border-radius: 5px; /* Rounded input corners */
+    background-color: #f9f9f9; /* Light background for inputs */
+}
+
+input:focus {
+    outline: none; /* Remove default outline */
+    border-color: #2d6a4f; /* Change border color on focus */
+    background-color: #f0f5f0; /* Light green background on focus */
+}
+
+/* Button Styles */
+button {
+    width: 100%; /* Full width button */
+    padding: 12px; /* Padding for button */
+    font-size: 16px;
+    font-weight: 600;
+    color: white; /* White text */
+    background-color: #2d6a4f; /* Green background for button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-top: 15px; /* Space above button */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #225941; /* Darker green on button hover */
+}
+
+/* Result Styles */
+.result {
+    margin-top: 20px; /* Space above result */
+    background-color: #d9f4d6; /* Light green background */
+    padding: 15px; /* Padding for result box */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 16px; /* Font size for result text */
+    color: #2d6a4f; /* Dark green text color */
+}
+
+.result h3 {
+    font-size: 18px; /* Font size for result heading */
+}
+
+.result span {
+    font-weight: 600; /* Bold font for the predicted crop */
+}
+
+/* Additional Styles for Attributes */
+.attribute {
+    background-color: #f9f9f9; /* Light background for attribute sections */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 15px; /* Padding inside the attribute box */
+    margin-bottom: 15px; /* Space between attribute sections */
+}
+
+h3 {
+    color: #333; /* Darker color for attribute titles */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333; /* Dark background */
+    color: white; /* White text */
+    text-align: center; /* Center text */
+    padding: 20px 0; /* Padding for footer */
+}
+
+footer a {
+    color: #4CAF50; /* Green links */
+    text-decoration: none; /* No underline */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Full width for smaller screens */
+    }
+    
+    .form-container {
+        width: 90%; /* Full width form on small screens */
+    }
+}
+
+@media (max-width: 400px) {
+    .form-container {
+        width: 100%; /* Adjust form width on very small screens */
+    }
+}
+
+.container {
+    max-width: 800px; /* Maximum width for larger screens */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding for breathing space */
+}
+
+h2 {
+    font-size: 24px; /* Larger font for headings */
+    margin: 20px 0; /* Margin above and below headings */
+}
+
+p {
+    font-size: 16px; /* Font size for paragraphs */
+    line-height: 1.6; /* Improved readability */
+    margin-bottom: 20px; /* Space below paragraphs */
+}
+
+.btn {
+    display: inline-block; /* Keep the button inline */
+    padding: 10px 20px; /* Button padding */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text color */
+    text-decoration: none; /* No underline */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.testimonial-container {
+    display: flex; /* Use Flexbox for layout */
+    flex-direction: column; /* Stack testimonials vertically */
+    gap: 20px; /* Space between testimonials */
+}
+
+blockquote {
+    background-color: #f9f9f9; /* Light background for testimonials */
+    border-left: 5px solid #4CAF50; /* Green left border */
+    padding: 15px; /* Padding inside the blockquote */
+    border-radius: 5px; /* Rounded corners */
+}
+
+cite {
+    display: block; /* Block display for citation */
+    margin-top: 10px; /* Space above citation */
+    font-style: italic; /* Italic style for citation */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    h2 {
+        font-size: 20px; /* Smaller heading font on smaller screens */
+    }
+
+    p {
+        font-size: 14px; /* Smaller paragraph font */
+    }
+
+    .btn {
+        width: 100%; /* Full width button on small screens */
+    }
+}
+
+
+.attributes-container {
+    display: grid; /* Use grid layout for responsiveness */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Space between cards */
+    margin: 20px; /* Margin around the container */
+}
+
+.attribute {
+    background-color: #f9f9f9; /* Light background */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Padding inside each card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition effects */
+}
+
+.attribute:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+h3 {
+    color: #4CAF50; /* Green color for headings */
+    font-size: 20px; /* Font size for headings */
+    margin-bottom: 10px; /* Space below headings */
+}
+
+p {
+    color: #555; /* Darker text for better readability */
+    font-size: 14px; /* Font size for paragraphs */
+    line-height: 1.5; /* Line height for readability */
+}
+
+
+.how-it-works, .user-testimonials {
+    background-color: white; /* White background for both sections */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside each section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    margin: 20px 0; /* Margin between sections */
+}
+
+.how-it-works h2, .user-testimonials h2 {
+    color: #4CAF50; /* Green color for headings */
+}
+
+.testimonial-container {
+    margin-top: 15px; /* Space above testimonials */
+}
+
+blockquote {
+    background-color: #f9f9f9; /* Light background for blockquotes */
+    border-left: 4px solid #4CAF50; /* Green border for blockquote */
+    padding: 10px 15px; /* Padding inside blockquote */
+    border-radius: 5px; /* Rounded corners for blockquote */
+    margin: 10px 0; /* Space between blockquotes */
+    font-style: italic; /* Italic style for quotes */
+    color: #333; /* Darker text color for quotes */
+}
+
+
+footer {
+    background-color: #4CAF50; /* Darker green background for the footer */
+    color: white; /* White text color */
+    padding: 20px; /* Padding around the footer */
+    text-align: center; /* Centered text */
+}
+
+.footer-content {
+    margin-bottom: 10px; /* Space below footer content */
+}
+
+footer a {
+    color: #FFD700; /* Gold color for links */
+    text-decoration: none; /* Remove underline from links */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+footer a:hover {
+    color: #FFEA00; /* Lighter gold on hover */
+}
+
+.footer-links {
+    margin-top: 10px; /* Space above footer links */
+}
+
+.footer-links a {
+    margin: 0 10px; /* Space between footer links */
+    font-size: 14px; /* Smaller font size for links */
+    color: white; /* White text for links */
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+.crop-image {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.user-reviews {
+    background-color: white; /* White background for both sections */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside each section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    margin: 20px 0; /* Margin between sections */
+}
+
+.user-reviews h2 {
+    color: #4CAF50; /* Green color for headings */
+}
+
+.review-container {
+    margin-top: 15px;
+}
+
+.review-container blockquote {
+    border-left: 2px solid #ccc;
+    padding-left: 10px;
+    margin: 10px 0;
+}
+
+
+.user-reviews {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.rating {
+    display: flex;
+    direction: row-reverse;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.star {
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.star:hover,
+.star:hover ~ .star {
+    color: gold;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.review-container {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+blockquote {
+    margin: 10px 0;
+    padding: 10px;
+    border-left: 5px solid #007bff;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+
+
+
+
+/* Global font style for all attributes */
+.attributes-container {
+    font-family: 'Poppins', sans-serif; /* Apply the same font for the entire attributes section */
+    color: #333; /* Set a consistent color for all text within the attributes container */
+}
+
+/* Styling for individual attribute containers */
+.attribute {
+    background-color: #f9f9f9; /* Light background */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Padding inside each card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition effects */
+    margin-bottom: 20px; /* Space between attributes */
+}
+
+/* Styling for the headings inside each attribute section */
+.attribute h3 {
+    color: #4CAF50; /* Green color for headings, unchanged */
+    font-size: 20px; /* Font size for headings */
+    margin-bottom: 10px; /* Space below headings */
+}
+
+/* Styling for the bullet lists in each attribute */
+.disc-bullets {
+    list-style-type: disc; /* Disc style bullets */
+    padding-left: 20px; /* Indentation for the list */
+    color: #333; /* Consistent color for list items */
+    font-size: 14px; /* Font size for list items */
+    line-height: 1.6; /* Improved readability */
+}
+
+/* Styling for paragraph texts */
+.attribute p {
+    color: #333; /* Consistent color for paragraphs */
+    font-size: 14px; /* Font size for paragraphs */
+    line-height: 1.6; /* Line height for readability */
+}
+
