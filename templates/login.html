@@ -30,36 +30,3 @@
     </div>
 </body>
 </html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Crop Recommendation System</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <h1>Login</h1>
-        {% if current_user.is_authenticated %}
-            <p>You are already logged in. <a href="{{ url_for('home') }}">Go to Home</a></p>
-        {% else %}
-            {% if error %}
-                <p class="error">{{ error }}</p>
-            {% endif %}
-            <form method="POST" action="{{ url_for('login') }}">
-                <label for="email">Email</label>
-                <input type="email" name="email" required>
-            
-                <label for="password">Password</label>
-                <input type="password" name="password" required>
-                
-                <button type="submit">Login</button>
-            </form>
-            <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
-        {% endif %}
-    </div>
-</body>
-</html>
