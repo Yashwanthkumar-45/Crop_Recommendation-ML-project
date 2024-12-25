@@ -1,0 +1,188 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS styles go here */
+        body {
+          font-family: Arial, sans-serif;
+        }
+        
+        .disc-bullets {
+          list-style-type: disc; /* Uses default disc bullets */
+          padding-left: 20px;    /* Adds padding for standard bullet alignment */
+        }
+    
+        .disc-bullets li {
+          margin-bottom: 10px; /* Adds space between list items */
+          color: black;         /* Sets text color to black */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>🌾Crop Recommendation System</h1>
+        </div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/index">Predict Crop</a>
+            <a href="#attributes">Attributes</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#reviews">Reviews</a>
+            {% if current_user.is_authenticated %}
+              
+              <a href="/logout">Logout</a>
+            {% else %}
+              <a href="/login">Login</a>
+              <a href="/register">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>🌾 Welcome to the Crop Recommendation System!</h1>
+        {% if current_user.is_authenticated %}
+           <p>Welcome, {{ current_user.username }}!</p>
+        {% else %}
+           <a href="{{ url_for('login') }}">Login</a>
+        {% endif %}
+        <div class="attribute">
+            <p>The crop recommendation system is a valuable tool that assists farmers in identifying the most suitable crops to cultivate by analyzing various factors related to soil and weather conditions. By leveraging advanced algorithms and predictive analytics, the system evaluates critical parameters such as soil nutrients, moisture levels, pH balance, and local climatic factors, including temperature, humidity, and rainfall patterns. This comprehensive analysis enables the system to provide tailored recommendations that align with the specific environmental conditions of a given area. For instance, a farmer in a region with high nitrogen content in the soil and moderate rainfall may receive suggestions for crops that thrive under those conditions, thereby maximizing yield and quality. By empowering farmers with the knowledge they need to make strategic planting choices, the system not only enhances agricultural efficiency but also contributes to sustainable farming practices. Ultimately, it helps farmers optimize resource use, reduce waste, and improve productivity and profitability, supporting the broader goal of food security within their communities.
+            </p>
+        </div>
+
+        <h2 id="attributes">Attributes for Crop Prediction</h2>
+        
+        <div class="attributes-container">
+            <div class="attribute">
+                <h3>Nitrogen (N)</h3>
+                <ul class="disc-bullets">
+                    <li> Soil nitrogen is typically assessed by measuring nitrate (NO₃⁻) and ammonium (NH₄⁺) concentrations.</li>
+                    <li> Common methods include the Kjeldahl method (for total nitrogen) or colorimetric tests using soil test kits.</li>
+                    <li> Soil samples are mixed with reagents that react with nitrogen compounds, producing a color that can be measured using a spectrophotometer.</li>
+                </ul>
+                  
+                  
+            </div>
+        
+            <div class="attribute">
+                <h3>Phosphorus (P)</h3>
+                <p><ul class="disc-bullets">
+                    <li>Phosphorus is often measured as available phosphorus (orthophosphate, PO₄³⁻) in the soil.</li>
+                    <li>The Olsen and Bray P1 methods are widely used, depending on soil pH.</li>
+                    <li>Samples are treated with an extracting solution, and the concentration of phosphorus is measured with a spectrophotometer.</li>
+                  </ul>
+                </p>
+            </div>
+        
+            <div class="attribute">
+                <h3>Potassium (K)</h3>
+                <p><ul class="disc-bullets">
+                    <li>Potassium in soil is usually measured as exchangeable K⁺.</li>
+                    <li>The Ammonium Acetate extraction method is a common approach to assess potassium availability.</li>
+                    <li>After extraction, potassium levels are measured using a flame photometer or atomic absorption spectrophotometer.</li>
+                  </ul>
+                </p>
+            </div>
+        
+            <div class="attribute">
+                <h3>Temperature (°C)</h3>
+                <p>Temperature plays a critical role in the growth and development of plants, affecting processes such as germination, photosynthesis, flowering, and fruiting. Warmer temperatures typically accelerate metabolic processes, leading to faster growth rates and earlier flowering and fruiting. However, extreme temperatures, whether too high or too low, can negatively impact plant health, slowing growth or preventing reproduction altogether.</p>
+            </div>
+        
+            <div class="attribute">
+                <h3>Humidity (%)</h3>
+                <p>Humidity significantly affects the process of transpiration and water availability for plants. Low humidity increases transpiration, leading to higher water demands, while high humidity reduces transpiration and can slow down water loss, but it may also cause issues like waterlogged soils. Managing humidity levels is crucial for maintaining optimal conditions for plant growth, ensuring the right balance between water uptake, evaporation, and transpiration.</p>
+            </div>
+        
+            <div class="attribute">
+                <h3>pH Level</h3>
+                <p><ul class="disc-bullets">
+                    <li>pH is a measure of the soil’s acidity or alkalinity.</li>
+                    <li>To measure pH, mix soil with distilled water or calcium chloride solution in a 1:1 or 1:2 soil-to-solution ratio.</li>
+                    <li>Use a pH meter to get an accurate reading. Soil pH strips or colorimetric tests can also be used for an approximate result.</li>
+                  </ul>
+                </p>
+            </div>
+        
+            <div class="attribute">
+                <h3>Rainfall (mm)</h3>
+                <p>Adequate rainfall is essential for crop growth, while excessive rainfall can cause issues.</p>
+            </div>
+        </div>
+        
+
+        
+        <!-- How It Works Section -->
+        <div class="how-it-works">
+                <h2 id="how-it-works">How It Works</h2>
+                <p>Enter the values for the attributes in the prediction form, and our system will recommend the most suitable crop.</p>
+                <a href="/index" class="btn">Start Prediction</a>
+        </div>
+        
+        
+        <!-- User Reviews Section --> 
+        <div class="user-reviews">
+            <h2 id="reviews">User Reviews</h2>
+            <form method="POST" action="{{ url_for('submit_review') }}">
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                    <input type="hidden" name="rating" id="rating" value="0" required>
+                </div>
+                <textarea name="review" placeholder="Write your review here..." required></textarea>
+                <button type="submit">Submit Review</button>
+            </form>
+            <div class="review-container">
+                {% for review in reviews %}
+                    <blockquote>
+                        <p>"{{ review.review_text }}"</p>
+                        <cite>- {{ review.username }} (Rating: {{ review.rating }})</cite>
+                    </blockquote>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 Crop Recommendation System. All rights reserved.</p>
+            <p>Contact: <a href="mailto:info@croprecommendation.com">info@croprecommendation.com</a> | Follow us on 
+                <a href="#">Facebook</a>, <a href="#">Twitter</a>, <a href="#">Instagram</a>
+            </p>
+        </div>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+    
+    <!-- JavaScript for Star Ratings -->
+    <script>
+        const stars = document.querySelectorAll('.star');
+        const ratingInput = document.getElementById('rating');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const rating = star.getAttribute('data-value');
+                ratingInput.value = rating;
+
+                stars.forEach(s => {
+                    s.style.color = s.getAttribute('data-value') <= rating ? 'gold' : '#ccc';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
